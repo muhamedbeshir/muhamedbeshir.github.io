@@ -199,7 +199,11 @@
       ['Baya3', 'Live', 'POS solution (SaaS)', 'Inventory, sales, reports, promotions and loyalty. A secure Rust Windows launcher for offline use: encryption, hardware-based activation, auto backup, anti-debug.'],
       ['IGP (KSA)', 'App Store', 'Event booking platform', 'Laravel backend with Customer, Service Provider and Manager mobile apps plus an Admin Dashboard: auth, roles, bookings, payments, notifications, reporting.'],
       ['AYADINA', 'Google Play', 'Handmade crafts marketplace', 'Mobile marketplace with ads, advanced search, offline caching and real-time comments. JWT-secured REST API, secure file handling, admin dashboard.'],
-      ['Spark Media', 'Live', 'Teachers platform', 'Courses, payments, secure video streaming and content protection. Owned backend architecture, APIs, database design and AI-agent integration.']
+      ['Spark Media', 'Live', 'Teachers platform', 'Courses, payments, secure video streaming and content protection. Owned backend architecture, APIs, database design and AI-agent integration.'],
+      ['We Frites', 'Live', 'Egyptian potato exporter website (Foodo Nile)', 'Corporate site for premium Egyptian potatoes, from farm to table, exporting to 25+ countries.', 'https://www.foodonile.com/'],
+      ['Taiyo Land', 'Live', 'Company website (KSA)', 'Website for a Saudi group with three specialised divisions: home services and central laundry, digital marketing and software, and commercial services for businesses.', 'https://www.taiyoland.com/#contact'],
+      ['Taiyo Land Marketing', 'Live', 'Digital marketing agency website', 'Digital marketing, content, design and tech development agency site: campaigns and social media, creative production, influencers, brand identity, web and apps, SEO and automation.', 'https://marketing.taiyoland.com/#contact'],
+      ['Fatourah', 'Live', 'AI invoice and shipping-label generator', 'Arabic tool that turns WhatsApp messages into print-ready orders and invoices in seconds: AI parsing, instant edits, Excel export, A4 print with QR and barcode.', 'https://adminfatourah.duckdns.org/']
     ],
     ar: [
       ['SMPLQ', 'Live', 'منصة SaaS للتجارة الإلكترونية · محرر ثيمات + منشئ متاجر بالـ AI', 'منصة متعددة المستأجرين للتجار المصريين بـ Next.js وReact وPostgreSQL (schema لكل مستأجر) وواجهة عربية RTL. محرر ثيمات مرئي، إنشاء متجر بالذكاء الاصطناعي (Gemini)، دفع عند الاستلام، وشحن لكل محافظة.'],
@@ -207,7 +211,11 @@
       ['Baya3', 'Live', 'نظام نقاط بيع (SaaS)', 'مخزون ومبيعات وتقارير وعروض وبرنامج ولاء. ولانشر ويندوز آمن بـ Rust للعمل أوفلاين: تشفير، تفعيل مرتبط بالجهاز، نسخ احتياطي تلقائي وحماية من الـ debugging.'],
       ['IGP (السعودية)', 'App Store', 'منصة حجز فعاليات', 'باكند Laravel مع تطبيقات للعميل ومقدم الخدمة والمدير ولوحة تحكم: مصادقة وصلاحيات وحجوزات ومدفوعات وإشعارات وتقارير.'],
       ['AYADINA', 'Google Play', 'سوق للمشغولات اليدوية', 'تطبيق سوق بإعلانات وبحث متقدم وتخزين مؤقت للعمل أوفلاين وتعليقات لحظية. API بمصادقة JWT ومعالجة آمنة للملفات ولوحة تحكم.'],
-      ['Spark Media', 'Live', 'منصة للمدرسين', 'كورسات ومدفوعات وبث فيديو آمن وحماية للمحتوى. مسؤول عن معمارية الباكند والـ APIs وتصميم قاعدة البيانات وتكامل وكلاء الـ AI.']
+      ['Spark Media', 'Live', 'منصة للمدرسين', 'كورسات ومدفوعات وبث فيديو آمن وحماية للمحتوى. مسؤول عن معمارية الباكند والـ APIs وتصميم قاعدة البيانات وتكامل وكلاء الـ AI.'],
+      ['We Frites', 'Live', 'موقع شركة تصدير بطاطس مصرية (Foodo Nile)', 'موقع تعريفي للبطاطس المصرية الفاخرة من المزرعة للمائدة، بتصدير لأكثر من 25 دولة.', 'https://www.foodonile.com/'],
+      ['تايو لاند', 'Live', 'موقع شركة (السعودية)', 'موقع لمجموعة سعودية بثلاثة قطاعات متخصصة: الخدمات المنزلية والغسيل المركزي، التسويق الرقمي والبرمجة، والخدمات التجارية للمنشآت.', 'https://www.taiyoland.com/#contact'],
+      ['تايو لاند للتسويق', 'Live', 'موقع وكالة تسويق رقمي', 'موقع وكالة تسويق رقمي وصناعة محتوى وتصميم وتطوير تقني: الحملات والسوشيال ميديا، الإنتاج الإبداعي، المؤثرين، الهوية البصرية، المواقع والتطبيقات، SEO والأتمتة.', 'https://marketing.taiyoland.com/#contact'],
+      ['فاتورة', 'Live', 'نظام فواتير وبوليصات شحن بالـ AI', 'برنامج عربي يحوّل رسائل الواتساب إلى أوردرات وفواتير جاهزة للطباعة في ثوانٍ: تحليل بالـ AI، تعديل فوري، تصدير Excel، وطباعة A4 مع QR وباركود.', 'https://adminfatourah.duckdns.org/']
     ]
   };
   var EDU = {
@@ -234,7 +242,7 @@
           j[3].map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul></li>';
       }).join('') + '</ol></div>' +
       '<div class="bt-block"><h3>' + C.projT + '</h3><div class="bt-projects">' + PROJ[L].map(function (p) {
-        return '<article class="bt-card"><div class="bt-card-top"><h4>' + esc(p[0]) + '</h4><span class="bt-badge">' + esc(p[1]) + '</span></div><p class="bt-sub">' + esc(p[2]) + '</p><p>' + esc(p[3]) + '</p></article>';
+        return '<article class="bt-card"><div class="bt-card-top"><h4>' + esc(p[0]) + '</h4><span class="bt-badge">' + esc(p[1]) + '</span></div><p class="bt-sub">' + esc(p[2]) + '</p><p>' + esc(p[3]) + '</p>' + (p[4] ? '<a class="bt-card-link" href="' + p[4] + '" target="_blank" rel="noopener noreferrer">' + (EN ? 'Visit site' : 'زيارة الموقع') + ' &#8599;<span class="bp-sr">' + T.newTab + '</span></a>' : '') + '</article>';
       }).join('') + '</div></div>' +
       '<div class="bt-block"><h3>' + C.eduT + '</h3><div class="bt-edu"><h4>' + esc(EDU[L][0]) + '</h4><time>' + esc(EDU[L][1]) + '</time><p>' + esc(EDU[L][2]) + '</p></div></div>' +
       '</div>';

@@ -143,3 +143,7 @@ button.brand-motion-tile::after,button.why-wait-phone-object::after{content:"";p
 .bt-edu p,.bt-edu time{font-size:15px;color:rgba(241,234,221,.72);line-height:1.8}
 @media (max-width:767px){.bt-card{padding:20px}.bt-job-top{flex-direction:column}}
 @media (prefers-reduced-motion:reduce){.bt-btn,.bt-card{transition:none}}
+
+.bt-card-link{margin-top:auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--bt-copper);font-weight:700;font-size:15px;text-decoration:none}
+.bt-card-link:hover{text-decoration:underline;text-underline-offset:4px}
+.bt-card-link:focus-visible{outline:3px solid var(--bt-copper);outline-offset:3px}
