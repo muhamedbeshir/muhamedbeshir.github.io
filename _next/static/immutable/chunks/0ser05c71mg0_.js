@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,96601,e=>{"use strict";var t=e.i(43476),r=e.i(71645);let n=(0,r.createContext)("ar");e.s(["LanguageProvider",0,function({locale:e,children:r}){return(0,t.jsx)(n.Provider,{value:e,children:r})},"useLanguage",0,function(){return(0,r.useContext)(n)}])}]);
