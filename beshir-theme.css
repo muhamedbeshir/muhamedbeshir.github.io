@@ -270,5 +270,7 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:19%!important;left:6%!important;right:auto!important;width:auto!important;max-width:none}
   html[dir=rtl] .forge-title.forge-name-title>span,
   html[dir=rtl] .forge-title.forge-name-title .forge-title-word{font-size:min(15vw,86px)!important}
-  .bt-role{left:auto!important;right:7%!important;top:25.5%!important;text-align:right!important;white-space:normal!important;width:96px;font-size:11px;letter-spacing:.18em;line-height:1.7}
+  .bt-role{z-index:1!important;left:5%!important;right:4.5%!important;top:auto!important;bottom:17%!important;text-align:left!important;white-space:normal!important;width:auto;font-size:min(5.6vw,28px);font-weight:800;letter-spacing:.04em;line-height:1.25;opacity:1;color:#8fb2ff}
+  .bt-role i{font-style:normal}
+  .bt-role .r1,.bt-role .r2{display:flex;justify-content:space-between}}
 }

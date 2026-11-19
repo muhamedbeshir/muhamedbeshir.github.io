@@ -280,7 +280,7 @@
     var en = document.documentElement.lang === 'en';
     var d = document.createElement('div');
     d.className = 'bt-role';
-    d.innerHTML = 'Full Stack Developer';
+    d.setAttribute('aria-label','Full Stack Developer'); d.innerHTML = '<span class="r1"><i>Full</i> <i>Stack</i></span> <span class="r2"><i>Devel</i><i>oper</i></span>';
     st.appendChild(d);
   }
 
