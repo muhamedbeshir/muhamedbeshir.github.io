@@ -274,7 +274,17 @@
     document.body.appendChild(b);
   }
 
-  function startEffects() { initProgress(); initHalo(); initTheme(); }
+  function initRole() {
+    var st = document.querySelector('.forge-hero .forge-stage');
+    if (!st || st.querySelector('.bt-role')) return;
+    var en = document.documentElement.lang === 'en';
+    var d = document.createElement('div');
+    d.className = 'bt-role';
+    d.innerHTML = '<b>Full Stack Developer</b><span>' + (en ? 'SaaS platforms · APIs · Mobile apps' : 'بابني منصات وأنظمة وتطبيقات جوال') + '</span>';
+    st.appendChild(d);
+  }
+
+  function startEffects() { initProgress(); initHalo(); initTheme(); initRole(); }
   function whenIdle() {
     if ('requestIdleCallback' in window) requestIdleCallback(startEffects, { timeout: 2000 });
     else setTimeout(startEffects, 300);
