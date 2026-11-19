@@ -270,12 +270,11 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:max(19%,122px)!important;left:6%!important;right:auto!important;width:auto!important;max-width:none}
   html[dir=rtl] .forge-title.forge-name-title>span,
   html[dir=rtl] .forge-title.forge-name-title .forge-title-word{font-size:min(15vw,86px)!important}
-  .bt-role{z-index:6!important;text-shadow:0 1px 10px rgba(6,10,20,.95),0 0 3px rgba(6,10,20,.9);left:0!important;right:0!important;top:auto!important;bottom:13.5%!important;text-align:left!important;white-space:normal!important;width:auto;font-size:min(5.6vw,28px);font-weight:800;letter-spacing:.04em;line-height:1.25;opacity:1;color:#8fb2ff}
+  .bt-role{z-index:6!important;text-shadow:0 1px 10px rgba(6,10,20,.95),0 0 3px rgba(6,10,20,.9);left:var(--x0,0)!important;right:auto!important;width:var(--w,100%)!important;top:var(--y,60%)!important;bottom:auto!important;text-align:left!important;white-space:normal!important;font-size:var(--fs,15px);font-weight:800;letter-spacing:.03em;line-height:1.25;opacity:1;color:#8fb2ff}
   .bt-role i{font-style:normal}
-  .bt-role .r1,.bt-role .r2{display:flex;gap:35vw}
-  .bt-role i{flex:1}
-  .bt-role i:first-child{text-align:right}
-  .bt-role i:last-child{text-align:left}}
+  .bt-role .r1,.bt-role .r2{display:flex;gap:var(--gap,58%)}
+  .bt-role i:first-child{flex:none;width:var(--lw,18%);text-align:right;white-space:nowrap}
+  .bt-role i:last-child{flex:1;text-align:left;white-space:nowrap}}
 }
 
 /* tablet: keep the name clear of the astronaut's head */

@@ -282,6 +282,44 @@
     d.className = 'bt-role';
     d.setAttribute('aria-label','Full Stack Developer'); d.innerHTML = '<span class="r1"><i>Full</i> <i>Stack</i></span> <span class="r2"><i>Devel</i><i>oper</i></span>';
     st.appendChild(d);
+    var EXT = [[0.57,.25,1],[0.61,.29,.85],[0.66,.30,.88],[0.71,.28,.89],[0.76,.26,.88],[0.80,.24,.82],[0.85,.22,.70],[0.90,.21,.65],[0.95,.19,.64],[1,.19,.64]];
+    function ext(f0, f1) {
+      var mn = 1, mx = 0;
+      for (var i = 0; i < EXT.length; i++) {
+        var lo = EXT[i][0], hi = i + 1 < EXT.length ? EXT[i + 1][0] : 1.01;
+        if (hi >= f0 && lo <= f1) { mn = Math.min(mn, EXT[i][1]); mx = Math.max(mx, EXT[i][2]); }
+      }
+      return [mn, mx];
+    }
+    function place() {
+      var im = st.querySelector('img');
+      if (!im || window.innerWidth >= 768) { d.style.removeProperty('--x0'); return; }
+      var r = im.getBoundingClientRect(), s = st.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      var W = r.width, H = r.height;
+      var vis = Math.min(1, (s.bottom - r.top) / H);
+      var hf = W * 0.15 / H;
+      var maxF = vis - hf - 0.05;
+      var f = Math.max(0.6, Math.min(0.84, maxF));
+      var e = ext(f, f + hf);
+      var F2 = Math.max(11, W * 0.05);
+      var lw = Math.max(0.14, e[0] + 0.03);
+      var rs = Math.min(e[1] - 0.05, 0.97 - 4.4 * F2 / W);
+      rs = Math.max(rs, lw + 0.2);
+      var best = { f: f };
+      d.style.setProperty('--x0', (r.left - s.left) + 'px');
+      d.style.setProperty('--w', W + 'px');
+      d.style.setProperty('--y', (r.top - s.top + H * best.f) + 'px');
+      d.style.setProperty('--fs', F2 + 'px');
+      d.style.setProperty('--lw', (lw * 100) + '%');
+      d.style.setProperty('--gap', ((rs - lw) * 100) + '%');
+    }
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
+    [300, 900, 2000].forEach(function (t) { setTimeout(place, t); });
+    var im0 = st.querySelector('img');
+    if (im0) im0.addEventListener('load', place);
   }
 
   function startEffects() { initProgress(); initHalo(); initTheme(); initRole(); }
