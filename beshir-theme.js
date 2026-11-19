@@ -282,23 +282,18 @@
     var d = document.createElement('div');
     d.className = 'bt-hero-role';
     d.setAttribute('aria-label', 'Full Stack Developer');
-    d.innerHTML = '<span class="d">Full Stack Developer</span><span class="a">Full Stack</span><span class="b">Developer</span>';
     st.appendChild(d);
-    var A = d.querySelector('.a'), B = d.querySelector('.b');
+    d.innerHTML = '<span class="d">Full Stack Developer</span><span class="g"><i><u>Full</u><u>Stack</u></i><i><u>Devel</u><u>oper</u></i></span>';
+    var G = d.querySelector('.g');
     function place() {
-      var t1 = st.querySelector('.forge-title-top'), t2 = st.querySelector('.forge-title-bottom');
-      if (window.innerWidth >= 768 || !t1 || !t2) { A.style.cssText = B.style.cssText = ''; return; }
-      var s = st.getBoundingClientRect(), r1 = t1.getBoundingClientRect(), r2 = t2.getBoundingClientRect();
-      if (!r1.width || !r2.width) return;
-      var fs = Math.max(11, Math.min(s.width * .042, 17));
-      var pad = s.width * .06;
-      var aw = Math.max(40, r1.left - s.left - 10 - pad);
-      fs = Math.min(fs, aw / 6.2);
-      var bw = Math.max(40, s.right - r2.right - 10 - pad);
-      fs = Math.min(fs, bw / 5.9);
-      var c1 = r1.top - s.top + r1.height * .55, c2 = r2.top - s.top + r2.height * .55;
-      A.style.cssText = 'font-size:' + fs + 'px;top:' + (c1 - fs * .65) + 'px;right:' + (s.right - r1.left + 10) + 'px';
-      B.style.cssText = 'font-size:' + fs + 'px;top:' + (c2 - fs * .65) + 'px;left:' + (r2.right - s.left + 10) + 'px';
+      var im = st.querySelector('img');
+      if (window.innerWidth >= 768 || !im) { G.style.cssText = ''; return; }
+      var s = st.getBoundingClientRect(), r = im.getBoundingClientRect();
+      if (!r.width) return;
+      var fs = Math.min(s.width * .1, 64);
+      var tb = st.querySelector('.forge-title-bottom'), y = r.top - s.top + r.height * -.035;
+      if (tb) y = Math.max(y, tb.getBoundingClientRect().bottom - s.top - fs * .12);
+      G.style.cssText = 'font-size:' + fs + 'px;top:' + y + 'px';
     }
     place();
     window.addEventListener('resize', place);
