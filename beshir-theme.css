@@ -243,3 +243,11 @@ body::after{display:none!important}                 /* full-screen animated grai
 .editorial-header,.editorial-header.is-scrolled{-webkit-backdrop-filter:blur(10px)!important;backdrop-filter:blur(10px)!important}
 .bt-theme-toggle{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 .bp-overlay{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(6,10,20,.78)!important}
+
+/* mobile hero: stack the name above the astronaut so "بشير" is never hidden */
+@media (max-width:767px){
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-top{top:9%!important;right:7%!important;left:auto!important}
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:21%!important;bottom:auto!important;left:7%!important;right:auto!important;z-index:2}
+  html[lang=en] .forge-title.forge-name-title>.forge-title-top{top:9%!important}
+  html[lang=en] .forge-title.forge-name-title>.forge-title-bottom{top:20%!important;bottom:auto!important;inset-block-end:auto!important}
+}
