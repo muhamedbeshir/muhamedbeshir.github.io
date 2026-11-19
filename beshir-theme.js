@@ -283,17 +283,23 @@
     d.className = 'bt-hero-role';
     d.setAttribute('aria-label', 'Full Stack Developer');
     st.appendChild(d);
-    d.innerHTML = '<span class="d">Full Stack Developer</span><span class="g"><i><u>Full</u><u>Stack</u></i><i><u>Devel</u><u>oper</u></i></span>';
-    var G = d.querySelector('.g');
+    d.innerHTML = '<span class="d">Full Stack Developer</span><span class="g"><b>Full Stack Developer</b></span><span class="g h"><i><u>Full</u><u>Stack</u></i><i><u>Devel</u><u>oper</u></i></span>';
+    var G = d.querySelector('.g'), H = d.querySelector('.g.h'), B = G.firstChild;
+    var sf = st.querySelector('.portrait-depth-surface'), sh = 0;
+    H.style.display = 'none';
     function place() {
       var im = st.querySelector('img');
-      if (window.innerWidth >= 768 || !im) { G.style.cssText = ''; return; }
+      if (window.innerWidth >= 768 || !im) { G.style.cssText = ''; if (sf) sf.style.translate = ''; sh = 0; return; }
       var s = st.getBoundingClientRect(), r = im.getBoundingClientRect();
       if (!r.width) return;
-      var fs = Math.min(s.width * .078, 52);
-      var tb = st.querySelector('.forge-title-bottom'), y = r.top - s.top + r.height * -.035;
-      if (tb) y = Math.max(y, tb.getBoundingClientRect().bottom - s.top + fs * .35);
-      G.style.cssText = 'font-size:' + fs + 'px;top:' + y + 'px';
+      var tb = st.querySelector('.forge-title-bottom'), nb = tb ? tb.getBoundingClientRect().bottom - s.top : 0;
+      G.style.fontSize = '100px';
+      var w = B.getBoundingClientRect().width || 1;
+      var fs = Math.min(100 * s.width * .9 / w, 44), y = nb + fs * .2;
+      var helm = r.top - s.top - sh + r.height * .005;
+      var need = Math.max(0, Math.min(70, y + fs * 1.2 - helm));
+      if (sf && Math.abs(need - sh) > .5) { sf.style.translate = '0 ' + need + 'px'; sh = need; }
+      G.style.cssText = 'display:block;font-size:' + fs + 'px;top:' + y + 'px';
     }
     place();
     window.addEventListener('resize', place);
