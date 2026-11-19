@@ -274,50 +274,43 @@
     document.body.appendChild(b);
   }
 
+  /* Hero role label: "FULL STACK / DEVELOPER" split around the astronaut, on the CTA row. */
   function initRole() {
     var st = document.querySelector('.forge-hero .forge-stage');
-    if (!st || st.querySelector('.bt-role')) return;
-    var en = document.documentElement.lang === 'en';
+    if (!st || st.querySelector('.bt-hero-role')) return;
     var d = document.createElement('div');
-    d.className = 'bt-role';
-    d.setAttribute('aria-label','Full Stack Developer'); d.innerHTML = '<span class="r1"><i>Full</i> <i>Stack</i></span> <span class="r2"><i>Devel</i><i>oper</i></span>';
+    d.className = 'bt-hero-role';
+    d.setAttribute('aria-label', 'Full Stack Developer');
+    d.innerHTML = '<span class="d">Full Stack Developer</span><span class="l"><b>Full</b><b>Devel</b></span><span class="r"><b>Stack</b><b>oper</b></span>';
     st.appendChild(d);
-    var EXT = [[0.57,.25,1],[0.61,.29,.85],[0.66,.30,.88],[0.71,.28,.89],[0.76,.26,.88],[0.80,.24,.82],[0.85,.22,.70],[0.90,.21,.65],[0.95,.19,.64],[1,.19,.64]];
-    function ext(f0, f1) {
+    /* astronaut silhouette at a few heights: [fractionOfImageHeight, leftEdge, rightEdge] */
+    var EXT = [[.62,.31,.82],[.7,.31,.88],[.76,.28,.88],[.8,.26,.82],[.84,.24,.71],[.88,.22,.65],[.92,.21,.65],[.96,.2,.63]];
+    function span(f0, f1) {
       var mn = 1, mx = 0;
-      for (var i = 0; i < EXT.length; i++) {
-        var lo = EXT[i][0], hi = i + 1 < EXT.length ? EXT[i + 1][0] : 1.01;
-        if (hi >= f0 && lo <= f1) { mn = Math.min(mn, EXT[i][1]); mx = Math.max(mx, EXT[i][2]); }
-      }
-      return [mn, mx];
+      EXT.forEach(function (e) { if (e[0] >= f0 - .03 && e[0] <= f1 + .03) { mn = Math.min(mn, e[1]); mx = Math.max(mx, e[2]); } });
+      return mn > mx ? [.2, .65] : [mn, mx];
     }
     function place() {
-      var im = st.querySelector('img');
-      if (!im || window.innerWidth >= 768) { d.style.removeProperty('--x0'); return; }
+      var im = st.querySelector('img'), cta = document.querySelector('.hero-bottom-cta');
+      if (window.innerWidth >= 768 || !im) { d.style.cssText = ''; return; }
       var r = im.getBoundingClientRect(), s = st.getBoundingClientRect();
-      if (!r.width || !r.height) return;
-      var W = r.width, H = r.height;
-      var vis = Math.min(1, (s.bottom - r.top) / H);
-      var hf = W * 0.15 / H;
-      var maxF = vis - hf - 0.05;
-      var f = Math.max(0.6, Math.min(0.84, maxF));
-      var e = ext(f, f + hf);
-      var F2 = Math.max(11, W * 0.05);
-      var lw = Math.max(0.14, e[0] + 0.03);
-      var rs = Math.min(e[1] - 0.05, 0.97 - 4.4 * F2 / W);
-      rs = Math.max(rs, lw + 0.2);
-      var best = { f: f };
-      d.style.setProperty('--x0', (r.left - s.left) + 'px');
-      d.style.setProperty('--w', W + 'px');
-      d.style.setProperty('--y', (r.top - s.top + H * best.f) + 'px');
-      d.style.setProperty('--fs', F2 + 'px');
-      d.style.setProperty('--lw', (lw * 100) + '%');
-      d.style.setProperty('--gap', ((rs - lw) * 100) + '%');
+      if (!r.width) return;
+      d.style.display = 'block';
+      var W = r.width, H = r.height, fs = Math.max(11, W * .052), h = fs * 2.5;
+      var cy = cta ? (function (c) { return c.top + c.height / 2; })(cta.getBoundingClientRect()) : s.bottom - 0.13 * s.height;
+      var top = cy - h / 2;
+      var f = (top - r.top) / H, e = span(f, f + h / H);
+      var left = r.left - s.left, cl = cta ? cta.getBoundingClientRect() : null;
+      var lEnd = left + e[0] * W - 4, rStart = left + e[1] * W + 4;
+      if (cl) { lEnd = Math.min(lEnd, cl.left - s.left - 8); rStart = Math.max(rStart, cl.right - s.left + 8); }
+      fs = Math.max(10, Math.min(fs, lEnd / 5.8, (s.width - rStart) / 5.8));
+      top = cy - fs * 1.25;
+      d.style.cssText = 'display:block;top:' + (top - s.top) + 'px;font-size:' + fs + 'px;--lend:' + lEnd + 'px;--rstart:' + rStart + 'px';
     }
     place();
     window.addEventListener('resize', place);
     window.addEventListener('load', place);
-    [300, 900, 2000].forEach(function (t) { setTimeout(place, t); });
+    [300, 900, 2000, 3500].forEach(function (t) { setTimeout(place, t); });
     var im0 = st.querySelector('img');
     if (im0) im0.addEventListener('load', place);
   }

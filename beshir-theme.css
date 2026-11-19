@@ -270,11 +270,7 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:max(19%,122px)!important;left:6%!important;right:auto!important;width:auto!important;max-width:none}
   html[dir=rtl] .forge-title.forge-name-title>span,
   html[dir=rtl] .forge-title.forge-name-title .forge-title-word{font-size:min(15vw,86px)!important}
-  .bt-role{z-index:6!important;text-shadow:0 1px 10px rgba(6,10,20,.95),0 0 3px rgba(6,10,20,.9);left:var(--x0,0)!important;right:auto!important;width:var(--w,100%)!important;top:var(--y,60%)!important;bottom:auto!important;text-align:left!important;white-space:normal!important;font-size:var(--fs,15px);font-weight:800;letter-spacing:.03em;line-height:1.25;opacity:1;color:#8fb2ff}
-  .bt-role i{font-style:normal}
-  .bt-role .r1,.bt-role .r2{display:flex;gap:var(--gap,58%)}
-  .bt-role i:first-child{flex:none;width:var(--lw,18%);text-align:right;white-space:nowrap}
-  .bt-role i:last-child{flex:1;text-align:left;white-space:nowrap}}
+
 }
 
 /* tablet: keep the name clear of the astronaut's head */
@@ -287,3 +283,12 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom,
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom *{font-size:60px!important}
 }
+
+/* hero role label (fresh): positioned by beshir-theme.js */
+.bt-hero-role{position:absolute;left:0;right:0;z-index:6;height:2.5em;pointer-events:none;direction:ltr;font-weight:800;letter-spacing:.03em;line-height:1.25;text-transform:uppercase;color:#8fb2ff;text-shadow:0 1px 10px rgba(6,10,20,.95),0 0 3px rgba(6,10,20,.9);display:none}
+.bt-hero-role b{display:block;font-weight:inherit;white-space:nowrap}
+.bt-hero-role .l{position:absolute;top:0;right:calc(100% - var(--lend,40%));text-align:right}
+.bt-hero-role .r{position:absolute;top:0;left:var(--rstart,60%);text-align:left}
+html[data-bt-theme=light] .bt-hero-role{color:#2f5bd0;text-shadow:none}
+@media (max-width:767px){.bt-hero-role .d{display:none}}
+@media (min-width:768px){.bt-hero-role{display:block;left:6%;right:auto;top:auto;bottom:clamp(40px,9svh,90px);height:auto;font-size:14px;font-weight:600;letter-spacing:.22em;opacity:.9;text-shadow:none}.bt-hero-role .l,.bt-hero-role .r{display:none}}
