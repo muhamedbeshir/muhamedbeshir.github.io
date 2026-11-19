@@ -274,45 +274,36 @@
     document.body.appendChild(b);
   }
 
-  /* Hero role label: "FULL STACK / DEVELOPER" split around the astronaut, on the CTA row. */
+  /* Hero role label. Phone: "FULL STACK" sits in the empty slot beside the first name word and
+     "DEVELOPER" in the empty slot beside the second, so the staggered name reads like a clock face. */
   function initRole() {
     var st = document.querySelector('.forge-hero .forge-stage');
     if (!st || st.querySelector('.bt-hero-role')) return;
     var d = document.createElement('div');
     d.className = 'bt-hero-role';
     d.setAttribute('aria-label', 'Full Stack Developer');
-    d.innerHTML = '<span class="d">Full Stack Developer</span><span class="l"><b>Full</b><b>Devel</b></span><span class="r"><b>Stack</b><b>oper</b></span>';
+    d.innerHTML = '<span class="d">Full Stack Developer</span><span class="a">Full Stack</span><span class="b">Developer</span>';
     st.appendChild(d);
-    /* astronaut silhouette at a few heights: [fractionOfImageHeight, leftEdge, rightEdge] */
-    var EXT = [[.62,.31,.82],[.7,.31,.88],[.76,.28,.88],[.8,.26,.82],[.84,.24,.71],[.88,.22,.65],[.92,.21,.65],[.96,.2,.63]];
-    function span(f0, f1) {
-      var mn = 1, mx = 0;
-      EXT.forEach(function (e) { if (e[0] >= f0 - .03 && e[0] <= f1 + .03) { mn = Math.min(mn, e[1]); mx = Math.max(mx, e[2]); } });
-      return mn > mx ? [.2, .65] : [mn, mx];
-    }
+    var A = d.querySelector('.a'), B = d.querySelector('.b');
     function place() {
-      var im = st.querySelector('img'), cta = document.querySelector('.hero-bottom-cta');
-      if (window.innerWidth >= 768 || !im) { d.style.cssText = ''; return; }
-      var r = im.getBoundingClientRect(), s = st.getBoundingClientRect();
-      if (!r.width) return;
-      d.style.display = 'block';
-      var W = r.width, H = r.height, fs = Math.max(11, W * .052), h = fs * 2.5;
-      var cy = cta ? (function (c) { return c.top + c.height / 2; })(cta.getBoundingClientRect()) : s.bottom - 0.13 * s.height;
-      var top = cy - h / 2;
-      var f = (top - r.top) / H, e = span(f, f + h / H);
-      var left = r.left - s.left, cl = cta ? cta.getBoundingClientRect() : null;
-      var lEnd = left + e[0] * W - 4, rStart = left + e[1] * W + 4;
-      if (cl) { lEnd = Math.min(lEnd, cl.left - s.left - 8); rStart = Math.max(rStart, cl.right - s.left + 8); }
-      fs = Math.max(10, Math.min(fs, lEnd / 5.8, (s.width - rStart) / 5.8));
-      top = cy - fs * 1.25;
-      d.style.cssText = 'display:block;top:' + (top - s.top) + 'px;font-size:' + fs + 'px;--lend:' + lEnd + 'px;--rstart:' + rStart + 'px';
+      var t1 = st.querySelector('.forge-title-top'), t2 = st.querySelector('.forge-title-bottom');
+      if (window.innerWidth >= 768 || !t1 || !t2) { A.style.cssText = B.style.cssText = ''; return; }
+      var s = st.getBoundingClientRect(), r1 = t1.getBoundingClientRect(), r2 = t2.getBoundingClientRect();
+      if (!r1.width || !r2.width) return;
+      var fs = Math.max(11, Math.min(s.width * .042, 17));
+      var pad = s.width * .06;
+      var aw = Math.max(40, r1.left - s.left - 10 - pad);
+      fs = Math.min(fs, aw / 6.2);
+      var bw = Math.max(40, s.right - r2.right - 10 - pad);
+      fs = Math.min(fs, bw / 5.9);
+      var c1 = r1.top - s.top + r1.height * .55, c2 = r2.top - s.top + r2.height * .55;
+      A.style.cssText = 'font-size:' + fs + 'px;top:' + (c1 - fs * .65) + 'px;right:' + (s.right - r1.left + 10) + 'px';
+      B.style.cssText = 'font-size:' + fs + 'px;top:' + (c2 - fs * .65) + 'px;left:' + (r2.right - s.left + 10) + 'px';
     }
     place();
     window.addEventListener('resize', place);
     window.addEventListener('load', place);
     [300, 900, 2000, 3500].forEach(function (t) { setTimeout(place, t); });
-    var im0 = st.querySelector('img');
-    if (im0) im0.addEventListener('load', place);
   }
 
   function startEffects() { initProgress(); initHalo(); initTheme(); initRole(); }

@@ -284,11 +284,10 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom *{font-size:60px!important}
 }
 
-/* hero role label (fresh): positioned by beshir-theme.js */
-.bt-hero-role{position:absolute;left:0;right:0;z-index:6;height:2.5em;pointer-events:none;direction:ltr;font-weight:800;letter-spacing:.03em;line-height:1.25;text-transform:uppercase;color:#8fb2ff;text-shadow:0 1px 10px rgba(6,10,20,.95),0 0 3px rgba(6,10,20,.9);display:none}
-.bt-hero-role b{display:block;font-weight:inherit;white-space:nowrap}
-.bt-hero-role .l{position:absolute;top:0;right:calc(100% - var(--lend,40%));text-align:right}
-.bt-hero-role .r{position:absolute;top:0;left:var(--rstart,60%);text-align:left}
+/* hero role label: positioned by beshir-theme.js */
+.bt-hero-role{position:absolute;inset:0;z-index:6;pointer-events:none;direction:ltr;font-weight:800;letter-spacing:.06em;line-height:1;text-transform:uppercase;color:#8fb2ff;text-shadow:0 1px 10px rgba(6,10,20,.95),0 0 3px rgba(6,10,20,.9)}
+.bt-hero-role span{position:absolute;white-space:nowrap}
+.bt-hero-role .a{text-align:right}
 html[data-bt-theme=light] .bt-hero-role{color:#2f5bd0;text-shadow:none}
 @media (max-width:767px){.bt-hero-role .d{display:none}}
-@media (min-width:768px){.bt-hero-role{display:block;left:6%;right:auto;top:auto;bottom:clamp(40px,9svh,90px);height:auto;font-size:14px;font-weight:600;letter-spacing:.22em;opacity:.9;text-shadow:none}.bt-hero-role .l,.bt-hero-role .r{display:none}}
+@media (min-width:768px){.bt-hero-role{inset:auto;left:6%;bottom:clamp(40px,9svh,90px);font-size:14px;font-weight:600;letter-spacing:.22em;opacity:.9;text-shadow:none}.bt-hero-role .a,.bt-hero-role .b{display:none}.bt-hero-role .d{position:static}}
