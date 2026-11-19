@@ -290,9 +290,9 @@
       if (window.innerWidth >= 768 || !im) { G.style.cssText = ''; return; }
       var s = st.getBoundingClientRect(), r = im.getBoundingClientRect();
       if (!r.width) return;
-      var fs = Math.min(s.width * .1, 64);
+      var fs = Math.min(s.width * .092, 60);
       var tb = st.querySelector('.forge-title-bottom'), y = r.top - s.top + r.height * -.035;
-      if (tb) y = Math.max(y, tb.getBoundingClientRect().bottom - s.top - fs * .12);
+      if (tb) y = Math.max(y, tb.getBoundingClientRect().bottom - s.top + fs * .35);
       G.style.cssText = 'font-size:' + fs + 'px;top:' + y + 'px';
     }
     place();
