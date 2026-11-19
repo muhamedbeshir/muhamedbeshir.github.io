@@ -252,11 +252,7 @@ body::after{display:none!important}                 /* full-screen animated grai
   html[lang=en] .forge-title.forge-name-title>.forge-title-bottom{top:20%!important;bottom:auto!important;inset-block-end:auto!important}
 }
 
-/* hero role tag: says what he does */
-.bt-role{position:absolute;z-index:5;left:50%;bottom:clamp(96px,16svh,150px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 18px;border-radius:18px;background:rgba(10,18,38,.55);border:1px solid rgba(143,178,255,.22);text-align:center;white-space:nowrap;pointer-events:none;direction:ltr}
-.bt-role b{font:700 15px/1.2 system-ui,sans-serif;letter-spacing:.04em;color:#c4d7ff}
-.bt-role span{font:500 12.5px/1.5 var(--font-thmanyah-sans),system-ui,sans-serif;color:#dfe9ff;opacity:.85;direction:rtl}
-html[lang=en] .bt-role span{direction:ltr}
-@media (min-width:768px){.bt-role{left:auto;right:6%;transform:none;bottom:clamp(40px,9svh,90px);align-items:flex-end}.bt-role b{font-size:18px}.bt-role span{font-size:14px}}
-html[data-bt-theme=light] .bt-role{background:rgba(255,255,255,.7);border-color:rgba(47,91,208,.25)}
-html[data-bt-theme=light] .bt-role b{color:#2f5bd0}html[data-bt-theme=light] .bt-role span{color:#1a2a55}
+/* hero role tag: plain, minimal */
+.bt-role{position:absolute;z-index:5;left:7%;top:36%;font:600 12px/1.5 system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#8fb2ff;direction:ltr;text-align:left;pointer-events:none;opacity:.9}
+@media (min-width:768px){.bt-role{left:6%;top:auto;bottom:clamp(40px,9svh,90px);font-size:14px}}
+html[data-bt-theme=light] .bt-role{color:#2f5bd0}

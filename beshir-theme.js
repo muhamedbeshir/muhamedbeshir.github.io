@@ -280,7 +280,7 @@
     var en = document.documentElement.lang === 'en';
     var d = document.createElement('div');
     d.className = 'bt-role';
-    d.innerHTML = '<b>Full Stack Developer</b><span>' + (en ? 'SaaS platforms · APIs · Mobile apps' : 'بابني منصات وأنظمة وتطبيقات جوال') + '</span>';
+    d.innerHTML = 'Full Stack<br>Developer';
     st.appendChild(d);
   }
 
