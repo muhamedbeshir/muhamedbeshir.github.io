@@ -288,7 +288,7 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
 .bt-hero-role{position:absolute;inset:0;z-index:0;pointer-events:none;direction:ltr;font-weight:800;text-transform:uppercase}
 .bt-hero-role span{position:absolute;white-space:nowrap}
 .bt-hero-role .g{left:0;right:0;text-align:center;line-height:.95;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1.2px rgba(143,178,255,.5);opacity:.95}
-.bt-hero-role .g i{display:flex;gap:27%;font-style:normal;padding:0 3.5%}.bt-hero-role .g u{flex:1;text-decoration:none}.bt-hero-role .g u:first-child{text-align:right}.bt-hero-role .g u:last-child{text-align:left}
+.bt-hero-role .g i{display:flex;gap:37.5%;font-style:normal;padding:0 2%}.bt-hero-role .g u{flex:1;text-decoration:none}.bt-hero-role .g u:first-child{text-align:right}.bt-hero-role .g u:last-child{text-align:left}
 html[data-bt-theme=light] .bt-hero-role .g{-webkit-text-stroke-color:rgba(47,91,208,.4)}
 @media (max-width:767px){.bt-hero-role .d{display:none}}
 @media (min-width:768px){.bt-hero-role{inset:auto;z-index:5;left:6%;bottom:clamp(40px,9svh,90px);font-size:14px;font-weight:600;letter-spacing:.22em;opacity:.9;color:#8fb2ff}html[data-bt-theme=light] .bt-hero-role{color:#2f5bd0}.bt-hero-role .g{display:none}.bt-hero-role .d{position:static}}
