@@ -290,7 +290,7 @@
       if (window.innerWidth >= 768 || !im) { G.style.cssText = ''; return; }
       var s = st.getBoundingClientRect(), r = im.getBoundingClientRect();
       if (!r.width) return;
-      var fs = Math.min(s.width * .092, 60);
+      var fs = Math.min(s.width * .088, 58);
       var tb = st.querySelector('.forge-title-bottom'), y = r.top - s.top + r.height * -.035;
       if (tb) y = Math.max(y, tb.getBoundingClientRect().bottom - s.top + fs * .35);
       G.style.cssText = 'font-size:' + fs + 'px;top:' + y + 'px';
@@ -298,7 +298,7 @@
     place();
     window.addEventListener('resize', place);
     window.addEventListener('load', place);
-    [300, 900, 2000, 3500].forEach(function (t) { setTimeout(place, t); });
+    var n = 0, iv = setInterval(function () { place(); if (++n > 40) clearInterval(iv); }, 400);
   }
 
   function startEffects() { initProgress(); initHalo(); initTheme(); initRole(); }
