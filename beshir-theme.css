@@ -266,12 +266,23 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
 
 /* mobile hero: one word right, one word left, tag fills the empty corner */
 @media (max-width:767px){
-  html[dir=rtl] .forge-title.forge-name-title>.forge-title-top{top:8%!important;right:6%!important;left:auto!important;width:auto!important}
-  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:19%!important;left:6%!important;right:auto!important;width:auto!important;max-width:none}
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-top{top:max(8%,64px)!important;right:6%!important;left:auto!important;width:auto!important}
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:max(19%,122px)!important;left:6%!important;right:auto!important;width:auto!important;max-width:none}
   html[dir=rtl] .forge-title.forge-name-title>span,
   html[dir=rtl] .forge-title.forge-name-title .forge-title-word{font-size:min(15vw,86px)!important}
-  .bt-role{z-index:1!important;left:5%!important;right:4.5%!important;top:auto!important;bottom:17%!important;text-align:left!important;white-space:normal!important;width:auto;font-size:min(5.6vw,28px);font-weight:800;letter-spacing:.04em;line-height:1.25;opacity:1;color:#8fb2ff}
+  .bt-role{z-index:6!important;text-shadow:0 1px 10px rgba(6,10,20,.95),0 0 3px rgba(6,10,20,.9);left:5%!important;right:4.5%!important;top:auto!important;bottom:13.5%!important;text-align:left!important;white-space:normal!important;width:auto;font-size:min(5.6vw,28px);font-weight:800;letter-spacing:.04em;line-height:1.25;opacity:1;color:#8fb2ff}
   .bt-role i{font-style:normal}
   .bt-role .r1 i:first-child,.bt-role .r2 i:first-child{margin-left:10vw}
   .bt-role .r1,.bt-role .r2{display:flex;justify-content:space-between}}
+}
+
+/* tablet: keep the name clear of the astronaut's head */
+@media (min-width:768px) and (max-width:1023px){
+  html[dir=rtl] .forge-title.forge-name-title>span,
+  html[dir=rtl] .forge-title.forge-name-title .forge-title-word{font-size:64px!important}
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{left:4%!important}
+}
+@media (min-width:768px) and (max-width:1023px){
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom,
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom *{font-size:60px!important}
 }
