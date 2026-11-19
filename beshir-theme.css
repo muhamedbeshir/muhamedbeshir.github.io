@@ -253,6 +253,13 @@ body::after{display:none!important}                 /* full-screen animated grai
 }
 
 /* hero role tag: plain, minimal */
-.bt-role{position:absolute;z-index:5;left:7%;top:36%;font:600 12px/1.5 system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#8fb2ff;direction:ltr;text-align:left;pointer-events:none;opacity:.9}
+.bt-role{position:absolute;z-index:5;left:7%;top:39%;font:600 12px/1.5 system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#8fb2ff;direction:ltr;text-align:left;pointer-events:none;opacity:.9}
 @media (min-width:768px){.bt-role{left:6%;top:auto;bottom:clamp(40px,9svh,90px);font-size:14px}}
 html[data-bt-theme=light] .bt-role{color:#2f5bd0}
+
+@media (max-width:767px){
+  html[dir=rtl] .forge-title.forge-name-title>span,
+  html[dir=rtl] .forge-title.forge-name-title .forge-title-word{font-size:min(16vw,92px)!important;line-height:1.35!important}
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-top{top:10%!important}
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:23%!important;left:6%!important;max-width:88vw}
+}
