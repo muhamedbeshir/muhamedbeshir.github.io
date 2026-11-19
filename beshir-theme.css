@@ -263,3 +263,12 @@ html[data-bt-theme=light] .bt-role{color:#2f5bd0}
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-top{top:10%!important}
   html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:23%!important;left:6%!important;max-width:88vw}
 }
+
+/* mobile hero: one word right, one word left, tag fills the empty corner */
+@media (max-width:767px){
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-top{top:8%!important;right:6%!important;left:auto!important;width:auto!important}
+  html[dir=rtl] .forge-title.forge-name-title>.forge-title-bottom{top:19%!important;left:6%!important;right:auto!important;width:auto!important;max-width:none}
+  html[dir=rtl] .forge-title.forge-name-title>span,
+  html[dir=rtl] .forge-title.forge-name-title .forge-title-word{font-size:min(15vw,86px)!important}
+  .bt-role{left:auto!important;right:7%!important;top:25.5%!important;text-align:right!important;white-space:normal!important;width:96px;font-size:11px;letter-spacing:.18em;line-height:1.7}
+}

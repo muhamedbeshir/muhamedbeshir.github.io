@@ -280,7 +280,7 @@
     var en = document.documentElement.lang === 'en';
     var d = document.createElement('div');
     d.className = 'bt-role';
-    d.innerHTML = 'Full Stack<br>Developer';
+    d.innerHTML = 'Full Stack Developer';
     st.appendChild(d);
   }
 
